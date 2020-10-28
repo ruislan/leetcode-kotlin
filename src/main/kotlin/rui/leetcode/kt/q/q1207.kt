@@ -2,12 +2,12 @@ package rui.leetcode.kt.q
 
 import org.junit.Assert.*
 import org.junit.Test
-import rui.leetcode.kt.toPrettyString
 
 class Q1207 {
     fun uniqueOccurrences(arr: IntArray): Boolean {
         // 方法1
         // 使用hashmap存储数字和频率，然后查看频率是否都相同
+        // Passed 164ms 33.2mb
         val numberFreq = mutableMapOf<Int, Int>()
         for (n in arr) numberFreq[n] = numberFreq.getOrDefault(n, 0) + 1
         val freqSet = mutableSetOf<Int>()
