@@ -2,6 +2,14 @@ package rui.leetcode.kt
 
 import java.lang.StringBuilder
 
+fun IntArray.toPrettyString(): String {
+    val sb = StringBuilder()
+    sb.append('[')
+    sb.append(this.joinToString(","))
+    sb.append(']')
+    return sb.toString()
+}
+
 fun <K, V> Map<K, V>.toPrettyString(): String {
     val sb = StringBuilder()
     sb.append('[')
