@@ -1,7 +1,6 @@
 package rui.leetcode.kt.q
 
 import org.junit.Test
-import rui.leetcode.kt.toPrettyString
 import kotlin.test.assertTrue
 
 class Q922 {
