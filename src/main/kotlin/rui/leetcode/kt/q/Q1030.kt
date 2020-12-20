@@ -1,9 +1,5 @@
 package rui.leetcode.kt.q
 
-import org.junit.Test
-import rui.leetcode.kt.toPrettyString
-import kotlin.test.assertTrue
-
 class Q1030 {
     fun allCellsDistOrder(R: Int, C: Int, r0: Int, c0: Int): Array<IntArray> {
         // 方法1
