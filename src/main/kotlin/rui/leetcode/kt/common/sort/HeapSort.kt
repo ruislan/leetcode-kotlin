@@ -1,8 +1,4 @@
-package rui.leetcode.kt.common
-
-import org.junit.Test
-import kotlin.system.measureTimeMillis
-import kotlin.test.assertTrue
+package rui.leetcode.kt.common.sort
 
 
 /**
@@ -50,31 +46,5 @@ fun IntArray.heapSort() {
     for (i in size - 1 downTo 1) { // 每次缩小堆范围
         swap(this, 0, i) // 每次交换头和堆范围尾
         adjustHeap(this, 0, i) // 这里只需要调整根节点，其他节点都是符合堆规则的
-    }
-}
-
-class Test {
-    private val data = arrayOf(
-            intArrayOf(),
-            intArrayOf(1),
-            intArrayOf(1, 2),
-            intArrayOf(1, 2, 3),
-            intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
-            intArrayOf(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5),
-            (1..10000000).map { it }.toIntArray(),
-    )
-
-    @Test
-    fun testHeapSort() {
-        for (origin in data) {
-            val x = origin.clone()
-            x.shuffle()
-            val y = x.clone()
-            x.heapSort()
-            val tmX = measureTimeMillis { x.heapSort() }
-            val tmY = measureTimeMillis { y.sort() }
-            println("[Heap Sort] use:$tmX ms vs [Default Sort]:$tmY ms")
-            assertTrue(y.contentEquals(x))
-        }
     }
 }
