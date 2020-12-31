@@ -1,4 +1,6 @@
-package rui.leetcode.kt
+package rui.leetcode.kt.common
+
+import rui.leetcode.kt.toPrettyString
 
 /**
  * 树状数组
@@ -45,13 +47,13 @@ class FenwickTree(val arr: IntArray) {
         arr[i] = x
     }
 
-    fun sumRange(start: Int, end: Int): Int = treeQuery(end + 1) - treeQuery(start)
+    fun sumOfRange(start: Int, end: Int): Int = treeQuery(end + 1) - treeQuery(start)
 }
 
 fun main() {
     val ft = FenwickTree(intArrayOf(1, 2, 3, 4, 5))
     println(ft.data.toPrettyString()) // [0,1 3 3 10 5]
-    val rs = ft.sumRange(1, 4) // [ 2,3,4,5] = 14
+    val rs = ft.sumOfRange(1, 4) // [ 2,3,4,5] = 14
     println(rs) // 14
 
     ft.update(1, 3) // [1,3,3,4,5]
