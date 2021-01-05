@@ -40,10 +40,12 @@ class SegmentTree(private val arr: IntArray) {
      * 查询树
      */
     private fun queryTree(node: Int, lo: Int, hi: Int, l: Int, r: Int): Int {
-        return if (lo == hi || (lo >= l && hi <= r)) { // 找到了叶子节点或者查找的范围已经被l和r包裹
-            nodes[node] // 直接返回节点内容
-        } else if (lo > r || hi < l) { // 查找范围已经和l,r的范围没有交集
+        return if (lo > r || hi < l) { //  查找范围已经和l,r的范围没有交集或者找到了叶子节点
             0 // 返回0
+        } else if (lo >= l && hi <= r) { // 找到了查找的范围已经被l和r包裹
+            nodes[node] // 直接返回节点内容
+        } else if (lo == hi) { // 然后找打了叶子节点
+            nodes[node] // 返回叶子节点
         } else {
             val leftChild = node * 2 + 1
             val rightChild = node * 2 + 2
@@ -74,10 +76,14 @@ class SegmentTree(private val arr: IntArray) {
 }
 
 fun main() {
-    val st = SegmentTree(intArrayOf(1, 3, 5, 7, 9, 11))
+    var st = SegmentTree(intArrayOf(1, 3, 5, 7, 9, 11))
     println(st.nodes.joinToString(",")) // 36,9,27,4,5,16,11,1,3,0,0,7,9,0,0
     println(st.sumOfRange(2, 5)) // 5+7+9+11=32
     st.update(4, 6) // 1,3,5,7,6,11
     println(st.nodes.joinToString(",")) // 33,9,24,4,5,13,11,1,3,0,0,7,6,0,0
     println(st.sumOfRange(2, 5)) // 5+7+6+11=29
+
+
+    st = SegmentTree(intArrayOf(1, 2, 3, 4, 5, 6))
+    println(st.sumOfRange(0, 3)) // 1+2+3+4=10
 }
