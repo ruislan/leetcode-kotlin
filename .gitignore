@@ -12,5 +12,6 @@
 hs_err_pid*
 /target
 .idea
+.vscode
 *.iml
 META-INF/

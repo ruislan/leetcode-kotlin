@@ -19,15 +19,20 @@ class SortTests {
     @Test
     fun testMergeSort() {
         for (origin in data) {
-            val x = origin.clone()
-            x.shuffle()
-            val y = x.clone()
-            val z = x.clone()
-            val tmX = measureTimeMillis { x.heapSort() }
-            val tmY = measureTimeMillis { y.mergeSort() }
-            val tmZ = measureTimeMillis { z.sort() }
-            println("[Heap Sort] use:$tmX ms vs [Merge Sort]:$tmY ms vs [Default Sort]:$tmZ ms")
-            assertTrue(y.contentEquals(x))
+            val a0 = origin.clone()
+            a0.shuffle()
+            val a1 = a0.clone()
+            val a2 = a0.clone()
+            val a3 = a0.clone()
+            println("Sort Comparison with [${origin.size}] items:")
+            println("[Default Sort] use:${measureTimeMillis { a0.sort() }} ms")
+            println("[Heap Sort] use:${measureTimeMillis { a1.heapSort() }} ms")
+            println("[Merge Sort] use:${measureTimeMillis { a2.mergeSort() }} ms")
+            println("[Quick Sort] use:${measureTimeMillis { a3.quickSort() }} ms")
+            println()
+            assertTrue(a1.contentEquals(a0))
+            assertTrue(a2.contentEquals(a0))
+            assertTrue(a3.contentEquals(a0))
         }
     }
 }
