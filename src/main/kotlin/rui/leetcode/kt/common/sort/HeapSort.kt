@@ -1,5 +1,7 @@
 package rui.leetcode.kt.common.sort
 
+import rui.leetcode.kt.common.swap
+
 
 /**
  * 堆排序
@@ -16,12 +18,6 @@ package rui.leetcode.kt.common.sort
  *
  * O(nlogn)
  */
-private fun swap(arr: IntArray, i: Int, j: Int) {
-    arr[i] = arr[i] xor arr[j]
-    arr[j] = arr[i] xor arr[j]
-    arr[i] = arr[i] xor arr[j]
-}
-
 private fun buildHeap(arr: IntArray) {
     val n = arr.size
     for (i in ((n - 1) shr 1) downTo 0) {
@@ -35,7 +31,7 @@ private fun adjustHeap(arr: IntArray, i: Int, n: Int) {
     while (child < n) {
         if (child + 1 < n && arr[child + 1] > arr[child]) child += 1 // 找到最大的那个子节点
         if (arr[child] < arr[father]) break // 比最大的子节点大，调整结束
-        swap(arr, father, child) // 交换父子节点的值
+        arr.swap(father, child) // 交换父子节点的值
         father = child // 将子节点设置为新的父节点，继续
         child = father * 2 + 1
     }
@@ -44,7 +40,7 @@ private fun adjustHeap(arr: IntArray, i: Int, n: Int) {
 fun IntArray.heapSort() {
     buildHeap(this)
     for (i in size - 1 downTo 1) { // 每次缩小堆范围
-        swap(this, 0, i) // 每次交换头和堆范围尾
+        swap(0, i) // 每次交换头和堆范围尾
         adjustHeap(this, 0, i) // 这里只需要调整根节点，其他节点都是符合堆规则的
     }
 }

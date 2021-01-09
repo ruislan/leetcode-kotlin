@@ -1,6 +1,4 @@
-package rui.leetcode.kt
-
-import java.lang.StringBuilder
+package rui.leetcode.kt.common
 
 fun IntArray.toPrettyString(): String {
     val sb = StringBuilder()
@@ -8,6 +6,12 @@ fun IntArray.toPrettyString(): String {
     sb.append(this.joinToString(","))
     sb.append(']')
     return sb.toString()
+}
+
+fun IntArray.swap(i: Int, j: Int) {
+    this[i] = this[i] xor this[j]
+    this[j] = this[i] xor this[j]
+    this[i] = this[i] xor this[j]
 }
 
 fun <K, V> Map<K, V>.toPrettyString(): String {

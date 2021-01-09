@@ -1,7 +1,5 @@
 package rui.leetcode.kt.common
 
-import rui.leetcode.kt.toPrettyString
-
 /**
  * 树状数组
  * 用于解决数组范围内的和的问题

@@ -2,7 +2,6 @@ package rui.leetcode.kt.q
 
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import rui.leetcode.kt.toPrettyString
 
 class Q349 {
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
