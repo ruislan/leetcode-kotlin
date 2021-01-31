@@ -1,4 +1,6 @@
-package rui.leetcode.kt.common
+package rui.leetcode.kt.common.array
+
+import rui.leetcode.kt.common.toPrettyString
 
 /**
  * 树状数组

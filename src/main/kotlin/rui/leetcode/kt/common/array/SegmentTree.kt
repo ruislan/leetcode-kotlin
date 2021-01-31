@@ -1,4 +1,4 @@
-package rui.leetcode.kt.common
+package rui.leetcode.kt.common.array
 
 /**
  * 线段树
