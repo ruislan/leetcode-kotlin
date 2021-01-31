@@ -22,7 +22,7 @@ class UnionFind(val n: Int) {
             }
             rank[rootX] < rank[rootY] -> {
                 parent[rootX] = parent[rootY]
-                sz[rootY] = sz[rootX]
+                sz[rootY] += sz[rootX]
             }
             else -> {
                 parent[rootY] = parent[rootX]
