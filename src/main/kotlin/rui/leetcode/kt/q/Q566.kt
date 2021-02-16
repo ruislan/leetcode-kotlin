@@ -5,7 +5,7 @@ class Q566 {
         // 方法1
         // 将原数组拉平
         // 然后按照row * c + col的方式得到新矩阵的位置，填入数据
-        // AC
+        // AC 336ms 38.8mb
         val rows = nums.size
         val cols = nums[0].size
         if (r * c != rows * cols) return nums
