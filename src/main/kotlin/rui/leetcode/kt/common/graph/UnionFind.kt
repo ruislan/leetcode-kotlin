@@ -11,7 +11,7 @@ class UnionFind(val n: Int) {
         return parent[x]
     }
 
-    fun union(x: Int, y: Int): Boolean {
+    fun unite(x: Int, y: Int): Boolean {
         val rootX = find(x)
         val rootY = find(y)
         if (rootX == rootY) return false
