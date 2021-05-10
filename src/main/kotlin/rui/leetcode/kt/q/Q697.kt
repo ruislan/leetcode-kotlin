@@ -11,7 +11,7 @@ class Solution {
         // AC 316ms 38mb
         val freq = HashMap<Int, Int>()
         for (n in nums) freq.compute(n) { _, v -> if (v == null) 1 else v + 1 }
-        val degree = freq.map { it.value }.max()!!
+        val degree = freq.map { it.value }.maxOrNull()!!
         val n = nums.size
         var lo = 0
         var answer = n + 1
